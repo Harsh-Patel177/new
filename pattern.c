@@ -1,21 +1,19 @@
 #include <stdio.h>
+
+int* fun()
+{
+    // x now has scope throughout the program
+    static int x = 5;
+
+    return &x;
+}
+
 int main()
 {
-    int row=3,i,j,k;
-    printf("enter the row: \n");
-    scanf("%d",&row);
+    int* p = fun();
+    fflush(stdin);
 
-    for (i=0;i<row;i++)
-    {
-        for(j=i;j<=row;j++)
-        {
-            printf(" ");
-        }
-        for(k=i;k>=0;k--)
-        {
-            printf("* ");
-        }
-        printf("\n");
-    }
-    return 0;
+    // Not a dangling pointer as it points
+    // to static variable.
+    printf("%d", *p);
 }
