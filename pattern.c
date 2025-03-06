@@ -3,7 +3,7 @@
 int* fun()
 {
     // x now has scope throughout the program
-    static int x = 5;
+    static int x = 10;
 
     return &x;
 }
